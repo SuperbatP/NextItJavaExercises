@@ -3,24 +3,25 @@ package chapter20;
 import java.util.List;
 
 public class MemoService {
-    public List<MemoVO> selectMemos() {
-        return null;
+    MemoDAO dao = new MemoDAO();
+
+    public List<MemoVO> selectMemos() throws Exception {
+        return dao.selectMemos();
     }
 
-    public MemoVO selectMemo(int selectNo) {
-        return null;
+    public MemoVO selectMemo(int selectNo) throws Exception {
+        return dao.selectMemo(selectNo);
     }
 
-    public int insertMemos(MemoVO vo) {
-        return 0;
+    public int insertMemos(MemoVO vo) throws Exception {
+        return dao.insertMemo(vo);
     }
 
-    public int updateMemos(MemoVO vo) {
-        return 0;
+    public int updateMemos(MemoVO vo) throws Exception {
+        return dao.updateMemo(vo);
     }
 
-    public int deleteMemo(int deleteNo) {
-        return 0;
-
+    public int deleteMemo(int deleteNo) throws Exception {
+        return dao.deleteMemo(deleteNo);
     }
 }
