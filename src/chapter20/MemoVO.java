@@ -38,7 +38,7 @@ public class MemoVO {
         this.modifyDate = modifyDate;
     }
 
-    public MemoVO(String title, String content, String writer, int no)  {
+    public MemoVO(int no, String title, String content, String writer)  {
         this.no = no;
         this.title = title;
         this.content = content;

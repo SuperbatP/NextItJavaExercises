@@ -5,6 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemoDAO {
+    private static MemoDAO instance = new MemoDAO();
+
+    public static MemoDAO getInstance() {
+        return instance;
+    }
+
+    private MemoDAO() {
+    }
+
     public List<MemoVO> selectMemos() throws Exception {
         Class.forName("oracle.jdbc.OracleDriver");
         Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@192.168.0.30:1521:xe", "java", "oracle21c");
@@ -159,7 +168,6 @@ public class MemoDAO {
         String sql = builder.toString();
         PreparedStatement statement = connection.prepareStatement(sql); //물음표 쓸 수 있는게 prepare
         statement.setInt(1, deleteNo);
-//        ResultSet resultSet = statement.executeQuery();
 
         int executedDelete = statement.executeUpdate();
 
@@ -167,4 +175,5 @@ public class MemoDAO {
         connection.close();
         return executedDelete;
     }
+
 }
